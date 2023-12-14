@@ -6,11 +6,10 @@ import { ChartData } from "chart.js";
 // import { ChartDataSet } from "chart.js";
 
 type Props = {
-  labels?: string[];
   data: ChartData;
 }
 
-export function Chart({ labels, data }: Props) {
+export function ChartComponent({ data }: Props) {
   const chartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export function Chart({ labels, data }: Props) {
     });
 
     chartRef.current?.appendChild(canvas);
-    return () => chartRef.current?.removeChild(chartRef.current.children[0]);
+    return () => { chartRef.current?.removeChild(chartRef.current.children[0]) };
   }, []);
 
   return (

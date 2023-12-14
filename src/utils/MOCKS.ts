@@ -6,4 +6,6 @@ export const RELEASE_MOCK: TRelease[] = [
   { id: 3, title: 'Aluguel', value: 1000, type: 'out', transferType: 'PIX' },
   { id: 4, title: 'Água', value: 98, type: 'out', transferType: 'PIX' },
   { id: 5, title: 'Energia', value: 180, type: 'out', transferType: 'PIX' },
+  { id: 6, title: 'Netflix', value: 54.90, type: 'out', transferType: 'crédito' },
+  { id: 7, title: 'Amz Prime', value: 14.90, type: 'out', transferType: 'crédito' },
 ];

@@ -3,9 +3,9 @@
 import { TRelease } from "@/types/releases";
 import { currency } from "@/utils/formats";
 import { filterByProp, totalList } from "@/utils/lists";
-import { Modal } from "./shared/Modal";
+import { Modal } from "../../shared/Modal";
 import { useState } from "react";
-import { ColumnDef, Table } from "./shared/Table";
+import { ColumnDef, Table } from "../../shared/Table";
 
 type Props = {
   releases: TRelease[];

@@ -1,16 +1,14 @@
 'use client';
 
-import { ReleasesBalance } from "@/components/releases/ReleasesBalance";
-import { TotalReleasesBalance } from "@/components/releases/TotalReleasesBalance";
-import { Chart } from "@/components/releases/shared/Chart";
+import { ExpensesByCategory } from "@/components/releases/fixed/ExpensesByCategory";
+import { HigherExpensesChart } from "@/components/releases/fixed/HigherExpensesChart";
+import { ReleasesBalance } from "@/components/releases/fixed/ReleasesBalance";
+import { TotalReleasesBalance } from "@/components/releases/fixed/TotalReleasesBalance";
 import { RELEASE_MOCK } from "@/utils/MOCKS";
 import { filterByProp } from "@/utils/lists";
 
 export default function FixedReleases() {
-  const expenses = filterByProp(RELEASE_MOCK, 'type', 'out');
-
-  const expensesLabels = expenses.map(el => el.title);
-  const expensesValues = expenses.map(el => el.value);
+  const expenses = filterByProp(RELEASE_MOCK, 'type', 'out').slice(0, 8);
 
   return (
     <div className="flex flex-col gap-4 p-4">
@@ -19,14 +17,8 @@ export default function FixedReleases() {
           <TotalReleasesBalance releases={RELEASE_MOCK} />
           <ReleasesBalance />
 
-          <Chart data={{
-            labels: expensesLabels,
-            datasets: [{
-              label: 'Seus gastos',
-              data: expensesValues,
-              backgroundColor: "#ff7856"
-            }],
-          }} />
+          <ExpensesByCategory expenses={expenses} />
+          <HigherExpensesChart expenses={expenses} />
         </section>
 
         <section className="h-fit col-span-5 bg-gray-50 rounded text-start p-2 px-4">
@@ -42,9 +34,6 @@ export default function FixedReleases() {
           </div>
         </section>
       </div>
-
-      <br />
-
     </div>
   )
 }

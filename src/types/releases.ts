@@ -4,4 +4,5 @@ export type TRelease = {
   value: number;
   type: "in" | "out";
   transferType: string;
+  category: string;
 }
