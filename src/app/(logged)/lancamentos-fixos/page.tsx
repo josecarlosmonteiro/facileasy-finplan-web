@@ -4,8 +4,14 @@ import { ReleasesBalance } from "@/components/releases/ReleasesBalance";
 import { TotalReleasesBalance } from "@/components/releases/TotalReleasesBalance";
 import { Chart } from "@/components/releases/shared/Chart";
 import { RELEASE_MOCK } from "@/utils/MOCKS";
+import { filterByProp } from "@/utils/lists";
 
 export default function FixedReleases() {
+  const expenses = filterByProp(RELEASE_MOCK, 'type', 'out');
+
+  const expensesLabels = expenses.map(el => el.title);
+  const expensesValues = expenses.map(el => el.value);
+
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="grid grid-cols-12 gap-4 text-center">
@@ -13,9 +19,14 @@ export default function FixedReleases() {
           <TotalReleasesBalance releases={RELEASE_MOCK} />
           <ReleasesBalance />
 
-          <div className="max-h-[220px] w-fit mx-auto">
-            <Chart />
-          </div>
+          <Chart data={{
+            labels: expensesLabels,
+            datasets: [{
+              label: 'Seus gastos',
+              data: expensesValues,
+              backgroundColor: "#ff7856"
+            }],
+          }} />
         </section>
 
         <section className="h-fit col-span-5 bg-gray-50 rounded text-start p-2 px-4">

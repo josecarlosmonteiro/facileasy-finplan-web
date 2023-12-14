@@ -2,33 +2,27 @@
 
 import { useEffect, useRef } from "react";
 import { Chart as ChartJS } from 'chart.js/auto';
+import { ChartData } from "chart.js";
+// import { ChartDataSet } from "chart.js";
 
-export function Chart() {
+type Props = {
+  labels?: string[];
+  data: ChartData;
+}
+
+export function Chart({ labels, data }: Props) {
   const chartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const canvas = document.createElement('canvas');
-    canvas.className = "!w-full !h-full";
+    canvas.className = "w-full h-full";
 
     new ChartJS(canvas, {
       type: 'bar',
-      data: {
-        labels: ['moradia', 'alimentação', 'lazer', 'pets'],
-        datasets: [{
-          label: 'Despesas gerais',
-          data: [1230, 800, 500, 200],
-        }],
-      },
-      options: {
-        responsive: true,
-        layout: {
-          autoPadding: true
-        },
-      },
+      data,
     });
 
     chartRef.current?.appendChild(canvas);
-
     return () => chartRef.current?.removeChild(chartRef.current.children[0]);
   }, []);
 
