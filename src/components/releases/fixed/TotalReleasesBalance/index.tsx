@@ -1,11 +1,12 @@
 'use client';
 
+import { useState } from "react";
+
 import { TRelease } from "@/types/releases";
 import { currency } from "@/utils/formats";
 import { filterByProp, totalList } from "@/utils/lists";
-import { Modal } from "../../shared/Modal";
-import { useState } from "react";
-import { ColumnDef, Table } from "../../shared/Table";
+import { ColumnDef, Table } from "@/components/shared/Table";
+import { Modal } from "@/components/shared/Modal";
 
 type Props = {
   releases: TRelease[];

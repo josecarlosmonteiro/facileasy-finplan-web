@@ -14,7 +14,6 @@ describe("components/releases/fixed/ExpensesByCategory", () => {
     render(<ExpensesByCategory expenses={[]} />);
 
     const title = screen.getByText(/despesas por categoria/i);
-
     expect(title).toBeInTheDocument();
-  })
+  });
 })

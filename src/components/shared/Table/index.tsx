@@ -26,7 +26,7 @@ export function Table<T>({ columns, data }: Props<T>) {
           data.map((row: any, index) => (
             <tr key={`row_${index}`}>
               {columns.map((col, indexCol) => (
-                <td key={`cell_${index}`} className={`px-2 text-gray-500 text-center ${indexCol === columns.length - 1 && 'text-end'} border-b py-1`}>
+                <td key={`cell_${index}_${indexCol}`} className={`px-2 text-gray-500 text-center ${indexCol === columns.length - 1 && 'text-end'} border-b py-1`}>
                   {
                     col.formatFn
                       ? col.formatFn(row[col.accessKey])
