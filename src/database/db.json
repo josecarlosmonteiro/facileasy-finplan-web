@@ -1,3 +1,20 @@
 {
-  "fixed-releases": [] 
+  "fixed-releases": [
+    {
+      "id": "8fd3",
+      "category": "salário",
+      "transferType": "PIX",
+      "title": "tste",
+      "value": "230",
+      "type": "in"
+    },
+    {
+      "id": "f3cf",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "alutel",
+      "value": "200",
+      "type": "out"
+    }
+  ]
 }

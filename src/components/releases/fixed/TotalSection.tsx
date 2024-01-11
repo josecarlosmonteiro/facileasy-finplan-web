@@ -4,12 +4,12 @@ import { Modal } from "@/components/shared/Modal";
 import { useRelease } from "@/hooks/useRelease";
 import { TRelease } from "@/types/releases";
 import { currency } from "@/utils/formats";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AddReleaseForm } from "./AddReleaseForm";
+import { ColumnDef, Table } from "@/components/shared/Table";
+import { FixedReleasesContext } from "@/providers/FixedReleasesProvider";
 
-type Props = {
-  releases: TRelease[];
-};
+type Props = {};
 
 const modalMap = {
   CLOSED: 0,
@@ -17,9 +17,19 @@ const modalMap = {
   EXPENSES: 2,
 };
 
-export function TotalSection({ releases }: Props) {
+export function TotalSection({}: Props) {
+  const { releases, addRelease } = useContext(FixedReleasesContext);
+  const { revenues, expenses, totalRevenues, totalExpenses } =
+    useRelease(releases);
+
   const [modalControl, setModalControl] = useState<number>(modalMap.CLOSED);
-  const { totalRevenues, totalExpenses } = useRelease(releases);
+
+  const columns: ColumnDef<TRelease>[] = [
+    { accessKey: "title", label: "Lançamentos" },
+    { accessKey: "category", label: "Categoria" },
+    { accessKey: "transferType", label: "Tp. Transferência" },
+    { accessKey: "value", label: "Valor (R$)", formatFn: currency },
+  ];
 
   return (
     <>
@@ -41,19 +51,36 @@ export function TotalSection({ releases }: Props) {
       </div>
 
       <Modal
-        title="Adicionar Receitas"
+        title="Suas Receitas"
         modalOpen={modalControl === modalMap.REVENUES}
         onClose={() => setModalControl(modalMap.CLOSED)}
-        >
-        <AddReleaseForm releaseType="in" />
+      >
+        <div className="max-h-[30vh] overflow-auto">
+          <Table data={revenues} columns={columns} />
+        </div>
+
+        <div className="p-1 px-2 my-2 flex justify-between items-center bg-emerald-500 text-white font-semibold">
+          <div>Total</div>
+          <div>{currency(totalRevenues)}</div>
+        </div>
+
+        <AddReleaseForm releaseType="in" submitFn={addRelease} />
       </Modal>
 
       <Modal
-        title="Adicionar Despesas"
+        title="Suas Despesas"
         modalOpen={modalControl === modalMap.EXPENSES}
         onClose={() => setModalControl(modalMap.CLOSED)}
       >
-        <AddReleaseForm releaseType="out" />
+        <div className="max-h-[28vh] overflow-auto">
+          <Table data={expenses} columns={columns} />
+          <div className="p-1 px-2 my-2 flex justify-between items-center bg-red-500 text-white font-semibold">
+            <div>Total</div>
+            <div>{currency(totalRevenues)}</div>
+          </div>
+        </div>
+
+        <AddReleaseForm releaseType="out" submitFn={addRelease} />
       </Modal>
     </>
   );

@@ -2,22 +2,58 @@
 
 import { Input } from "@/components/shared/Forms/Input";
 import { Select } from "@/components/shared/Forms/Select";
-import { EXPENSES_CATEGORIES, RELEASE_TRANSITION_TYPES, REVENUES_CATEGORIES } from "@/constants/releases";
+import {
+  EXPENSES_CATEGORIES,
+  RELEASE_TRANSITION_TYPES,
+  REVENUES_CATEGORIES,
+} from "@/constants/releases";
 import { TRelease } from "@/types/releases";
+import { uniqueId } from "lodash";
 import { useForm } from "react-hook-form";
 
-export function AddReleaseForm({ releaseType }: { releaseType: "in" | "out" }) {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TRelease>();
-
+export function AddReleaseForm({
+  releaseType,
+  submitFn,
+}: {
+  releaseType: "in" | "out";
+  submitFn: (data: TRelease) => void;
+}) {
   const categories =
     releaseType === "in" ? REVENUES_CATEGORIES : EXPENSES_CATEGORIES;
 
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    setFocus,
+    formState: { errors },
+  } = useForm<TRelease>({
+    defaultValues: {
+      category: categories[0],
+      transferType: RELEASE_TRANSITION_TYPES[0],
+    },
+  });
+
+  const handleSubmitData = (data: TRelease) => {
+    const release: TRelease = {
+      ...data,
+      id: uniqueId(),
+      value: Number(data.value),
+    };
+
+    submitFn(release);
+
+    setValue("title", "");
+    setValue("value", 0);
+    setFocus("title");
+  };
+
   return (
-    <form onSubmit={handleSubmit((data) => console.log("submit data:", data))}>
+    <form
+      onSubmit={handleSubmit((data) =>
+        submitFn({ ...data, type: releaseType })
+      )}
+    >
       <div className="p-2 grid grid-cols-2 gap-4">
         <Select
           label="Categoria"

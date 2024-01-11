@@ -1,0 +1,36 @@
+"use client";
+
+import { ColumnDef, Table } from "@/components/shared/Table";
+import { FixedReleasesContext } from "@/providers/FixedReleasesProvider";
+import { TRelease } from "@/types/releases";
+import { currency } from "@/utils/formats";
+import { useContext } from "react";
+
+const columns: ColumnDef<TRelease>[] = [
+  { accessKey: "title", label: "Lançamento" },
+  { accessKey: "category", label: "Categoria" },
+  { accessKey: "transferType", label: "Tp. Transferência" },
+  {
+    accessKey: "value",
+    label: "Valor (R$)",
+    cell: (info) => (
+      <div
+        className={`text-end ${
+          info.type === "in" ? "text-emerald-500" : "text-red-500"
+        }`}
+      >
+        {currency(info.value)}
+      </div>
+    ),
+  },
+];
+
+export function GeneralTableFixedReleases() {
+  const { releases } = useContext(FixedReleasesContext);
+
+  return (
+    <div>
+      <Table data={releases} columns={columns} />
+    </div>
+  );
+}
