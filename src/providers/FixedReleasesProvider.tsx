@@ -22,9 +22,7 @@ export function FixedReleasesProvider({
   initialReleasesData: TRelease[];
   children: ReactNode;
 }) {
-  const [releases, setReleases] = useState<TRelease[]>(
-    initialReleasesData
-  );
+  const [releases, setReleases] = useState<TRelease[]>(initialReleasesData);
 
   const addRelease = async (release: TRelease) => {
     const response = await fixedReleasesService.post(release);
@@ -32,8 +30,12 @@ export function FixedReleasesProvider({
     if (response !== null) setReleases((state) => [...state, response]);
   };
 
-  const removeRelease = (releaseId: string) =>
-    setReleases((state) => state.filter((el) => el.id !== releaseId));
+  const removeRelease = async (releaseId: string) => {
+    const response = await fixedReleasesService.remove(releaseId);
+
+    if (response === undefined)
+      setReleases((state) => state.filter((el) => el.id !== releaseId));
+  };
 
   const context: FixedReleasesContextProps = {
     releases,

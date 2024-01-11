@@ -1,19 +1,43 @@
 {
   "fixed-releases": [
     {
-      "id": "8fd3",
+      "id": "f036",
       "category": "salário",
       "transferType": "PIX",
-      "title": "tste",
-      "value": "230",
+      "title": "adiantamento",
+      "value": "2440",
       "type": "in"
     },
     {
-      "id": "f3cf",
+      "id": "651a",
+      "category": "salário",
+      "transferType": "PIX",
+      "title": "salário",
+      "value": "2280",
+      "type": "in"
+    },
+    {
+      "id": "af4a",
       "category": "moradia",
       "transferType": "PIX",
-      "title": "alutel",
-      "value": "200",
+      "title": "aluguel",
+      "value": "1000",
+      "type": "out"
+    },
+    {
+      "id": "083c",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "água",
+      "value": "95",
+      "type": "out"
+    },
+    {
+      "id": "b8ff",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "energia",
+      "value": "230",
       "type": "out"
     }
   ]

@@ -1,5 +1,5 @@
 export type TRelease = {
-  id: number | string;
+  id: string;
   title: string;
   value: number;
   type: "in" | "out";
