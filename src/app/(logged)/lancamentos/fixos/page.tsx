@@ -1,3 +1,4 @@
+import { FixedReleasesCategory } from "@/components/releases/fixed/FixedReleasesCategory";
 import { GeneralTableFixedReleases } from "@/components/releases/fixed/GeneralTableFixedReleases";
 import { ReleasesBalancePercentage } from "@/components/releases/fixed/ReleasesBalancePercentage";
 import { TotalSection } from "@/components/releases/fixed/TotalSection";
@@ -17,16 +18,22 @@ export default async function FixedReleases() {
     <FixedReleasesProvider initialReleasesData={data || []}>
       <div className="flex flex-col gap-4 p-4">
         <div className="grid grid-cols-2 gap-4">
-          <section className="flex flex-col gap-4 p-4 bg-white rounded">
+          <section className="h-fit flex flex-col gap-4 p-4 bg-white rounded">
             <TotalSection />
+            
             <ReleasesBalancePercentage />
+
             <div className="text-sm italic text-gray-400">
               Clique em uma das sessões acima para adicionar novos items.
             </div>
+
+            <FixedReleasesCategory />
           </section>
 
           <section className="h-fit bg-white rounded text-start p-2 px-4">
-            <h2 className="text-xl text-gray-600 font-semibold border-b">Seus Lançamentos</h2>
+            <h2 className="text-xl text-gray-600 font-semibold border-b">
+              Seus Lançamentos
+            </h2>
             <br />
 
             <GeneralTableFixedReleases />
