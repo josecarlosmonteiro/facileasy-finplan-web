@@ -55,11 +55,7 @@ export function TotalSection({}: Props) {
         modalOpen={modalControl === modalMap.REVENUES}
         onClose={() => setModalControl(modalMap.CLOSED)}
       >
-        <div className="max-h-[30vh] overflow-auto">
-          <Table data={revenues} columns={columns} />
-        </div>
-
-        <div className="p-1 px-2 my-2 flex justify-between items-center bg-emerald-500 text-white font-semibold">
+        <div className="p-1 px-2 mx-2 mb-4 flex justify-between items-center bg-gray-50 text-emerald-500 border-b-2 border-emerald-500 font-semibold">
           <div>Total</div>
           <div>{currency(totalRevenues)}</div>
         </div>
@@ -72,12 +68,9 @@ export function TotalSection({}: Props) {
         modalOpen={modalControl === modalMap.EXPENSES}
         onClose={() => setModalControl(modalMap.CLOSED)}
       >
-        <div className="max-h-[28vh] overflow-auto">
-          <Table data={expenses} columns={columns} />
-          <div className="p-1 px-2 my-2 flex justify-between items-center bg-red-500 text-white font-semibold">
-            <div>Total</div>
-            <div>{currency(totalRevenues)}</div>
-          </div>
+        <div className="p-1 px-2 mx-2 mb-4 flex justify-between items-center bg-gray-50 text-red-500 border-b-2 border-red-500 font-semibold">
+          <div>Total</div>
+          <div>{currency(totalExpenses)}</div>
         </div>
 
         <AddReleaseForm releaseType="out" submitFn={addRelease} />

@@ -98,17 +98,16 @@ export function AddReleaseForm({
           placeholder="1000"
           rules={{ required: "campo obrigatório" }}
         />
-
-        <div className="col-span-2">
-          <button
-            type="submit"
-            className={`p-2 rounded ${
-              releaseType === "in" ? "bg-emerald-500" : "bg-red-500"
-            } text-white`}
-          >
-            adicionar
-          </button>
-        </div>
+      </div>
+      <div className="p-2 mt-2 flex justify-end">
+        <button
+          type="submit"
+          className={`p-2 rounded ${
+            releaseType === "in" ? "bg-emerald-500" : "bg-red-500"
+          } text-white`}
+        >
+          adicionar
+        </button>
       </div>
     </form>
   );
