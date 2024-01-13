@@ -44,6 +44,7 @@ export function Input<T extends FieldValues>({
             className="p-1 h-9 bg-gray-100 border-b-2 border-gray-400 focus:border-blue-400 duration-200"
             {...field}
             {...rest}
+            autoComplete="off"
           />
           <span className="text-red-500 text-sm font-semibold">
             {errors[name]?.message as string}

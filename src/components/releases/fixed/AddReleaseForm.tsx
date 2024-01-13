@@ -37,7 +37,6 @@ export function AddReleaseForm({
   const handleSubmitData = (data: TRelease) => {
     const release: TRelease = {
       ...data,
-      id: uniqueId(),
       type: releaseType,
       value: Number(data.value),
     };
@@ -51,7 +50,7 @@ export function AddReleaseForm({
 
   return (
     <form onSubmit={handleSubmit(handleSubmitData)}>
-      <div className="p-2 grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         <Select
           label="Categoria"
           control={control}
@@ -101,9 +100,8 @@ export function AddReleaseForm({
       <div className="p-2 mt-2 flex justify-end">
         <button
           type="submit"
-          className={`p-2 rounded ${
-            releaseType === "in" ? "bg-emerald-500" : "bg-red-500"
-          } text-white`}
+          className={`p-2 rounded ${releaseType === "in" ? "bg-emerald-500" : "bg-red-500"
+            } text-white`}
         >
           adicionar
         </button>

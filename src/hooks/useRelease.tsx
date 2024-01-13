@@ -27,6 +27,25 @@ export function useRelease(releases: TRelease[]) {
     "value"
   );
 
+  const totalByRevenueTransferType = mapTotalByProp(
+    revenues,
+    revenuesCategories,
+    "transferType",
+    "value"
+  );
+
+  const totalByExpenseTransferType = mapTotalByProp(
+    expenses,
+    expensesCategories,
+    "transferType",
+    "value"
+  );
+
+  const amount = Math.floor(totalRevenues + totalExpenses);
+
+  const revenuesTotalPercentage = Math.floor((totalRevenues / amount) * 100);
+  const expensesTotalPercentage = Math.floor(100 - revenuesTotalPercentage);
+
   return {
     revenues,
     expenses,
@@ -36,5 +55,9 @@ export function useRelease(releases: TRelease[]) {
     expensesCategories,
     totalByRevenueCategory,
     totalByExpenseCategory,
+    revenuesTotalPercentage,
+    expensesTotalPercentage,
+    totalByRevenueTransferType,
+    totalByExpenseTransferType,
   };
 }

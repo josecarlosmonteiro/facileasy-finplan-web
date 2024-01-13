@@ -10,6 +10,7 @@ export function GeneralTableFixedReleases() {
   const { releases, removeRelease } = useContext(FixedReleasesContext);
 
   const columns: ColumnDef<TRelease>[] = [
+    { accessKey: "id", label: "#ID" },
     { accessKey: "title", label: "Lançamento" },
     { accessKey: "category", label: "Categoria" },
     { accessKey: "transferType", label: "Tp. Transferência" },
