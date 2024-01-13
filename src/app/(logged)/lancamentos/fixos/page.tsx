@@ -1,4 +1,5 @@
-import { FixedReleasesCategory } from "@/components/releases/fixed/FixedReleasesCategory";
+import { FixedReleasesCategoryTotals } from "@/components/releases/fixed/FixedReleasesCategoryTotals";
+import { FixedReleasesTransferTypeTotals } from "@/components/releases/fixed/FixedReleasesTransferTypeTotals";
 import { GeneralTableFixedReleases } from "@/components/releases/fixed/GeneralTableFixedReleases";
 import { ReleasesBalancePercentage } from "@/components/releases/fixed/ReleasesBalancePercentage";
 import { TotalSection } from "@/components/releases/fixed/TotalSection";
@@ -27,7 +28,9 @@ export default async function FixedReleases() {
               Clique em uma das sessões acima para adicionar novos items.
             </div>
 
-            <FixedReleasesCategory />
+            <FixedReleasesCategoryTotals />
+
+            <FixedReleasesTransferTypeTotals />
           </section>
 
           <section className="h-fit bg-white rounded text-start p-2 px-4">

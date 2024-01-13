@@ -11,7 +11,7 @@ type TableDataProps = {
   total: number;
 };
 
-export function FixedReleasesCategory() {
+export function FixedReleasesCategoryTotals() {
   const { releases } = useContext(FixedReleasesContext);
   const { totalByRevenueCategory, totalByExpenseCategory } =
     useRelease(releases);
@@ -47,7 +47,7 @@ export function FixedReleasesCategory() {
   ];
 
   return (
-    <div className="p-4 shadow-md rounded">
+    <div className="p-4 shadow-md rounded text-sm">
       {!!tableData.length ? (
         <>
           <h1 className="text-xl italic">Lançamentos por categoria</h1>

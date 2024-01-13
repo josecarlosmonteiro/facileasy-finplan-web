@@ -1,22 +1,6 @@
 {
   "fixed-releases": [
     {
-      "id": "7aa3",
-      "category": "salário",
-      "transferType": "PIX",
-      "title": "adiantamento",
-      "value": 2440,
-      "type": "in"
-    },
-    {
-      "id": "56b8",
-      "category": "salário",
-      "transferType": "PIX",
-      "title": "salário",
-      "value": 2280,
-      "type": "in"
-    },
-    {
       "id": "7d3d",
       "category": "moradia",
       "transferType": "PIX",
@@ -38,6 +22,46 @@
       "transferType": "PIX",
       "title": "energia",
       "value": 230,
+      "type": "out"
+    },
+    {
+      "id": "1756",
+      "category": "salário",
+      "transferType": "bancária",
+      "title": "adiantamento",
+      "value": 2440,
+      "type": "in"
+    },
+    {
+      "id": "8333",
+      "category": "salário",
+      "transferType": "bancária",
+      "title": "salário",
+      "value": 2280,
+      "type": "in"
+    },
+    {
+      "id": "3e6d",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "netflix",
+      "value": 54.9,
+      "type": "out"
+    },
+    {
+      "id": "71a1",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "amazon prime",
+      "value": 14.9,
+      "type": "out"
+    },
+    {
+      "id": "d025",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "disney",
+      "value": 8,
       "type": "out"
     }
   ]

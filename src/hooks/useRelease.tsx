@@ -29,14 +29,14 @@ export function useRelease(releases: TRelease[]) {
 
   const totalByRevenueTransferType = mapTotalByProp(
     revenues,
-    revenuesCategories,
+    unique(revenues, 'transferType'),
     "transferType",
     "value"
   );
 
   const totalByExpenseTransferType = mapTotalByProp(
     expenses,
-    expensesCategories,
+    unique(expenses, 'transferType'),
     "transferType",
     "value"
   );
