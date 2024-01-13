@@ -29,18 +29,6 @@ export function FixedReleasesTransferTypeTotals() {
   const getTableData = (entryObj: Record<string, number>) =>
     Object.entries(entryObj).map(([key, value]) => ({ transferType: key, total: value }))
 
-
-  const tableData: TableDataProps[] = [
-    ...Object.entries(totalByRevenueTransferType).map(([key, value]) => ({
-      transferType: key,
-      total: value,
-    })),
-    ...Object.entries(totalByExpenseTransferType).map(([key, value]) => ({
-      transferType: key,
-      total: value,
-    })),
-  ];
-
   return (
     <div className="p-4 rounded shadow-md">
       <h1 className="text-lg">Lançamentos por Tipo de Transferência</h1>
