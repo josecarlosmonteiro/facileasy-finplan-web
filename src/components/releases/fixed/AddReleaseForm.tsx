@@ -38,22 +38,19 @@ export function AddReleaseForm({
     const release: TRelease = {
       ...data,
       id: uniqueId(),
+      type: releaseType,
       value: Number(data.value),
     };
 
     submitFn(release);
 
+    setFocus("title");
     setValue("title", "");
     setValue("value", 0);
-    setFocus("title");
   };
 
   return (
-    <form
-      onSubmit={handleSubmit((data) =>
-        submitFn({ ...data, type: releaseType })
-      )}
-    >
+    <form onSubmit={handleSubmit(handleSubmitData)}>
       <div className="p-2 grid grid-cols-2 gap-4">
         <Select
           label="Categoria"
@@ -92,8 +89,10 @@ export function AddReleaseForm({
 
         <Input
           label="Valor (R$)"
+          type="number"
           control={control}
           name="value"
+          step={0.1}
           errors={errors}
           placeholder="1000"
           rules={{ required: "campo obrigatório" }}

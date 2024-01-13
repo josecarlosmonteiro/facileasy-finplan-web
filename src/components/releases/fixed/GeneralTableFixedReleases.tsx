@@ -41,7 +41,7 @@ export function GeneralTableFixedReleases() {
   ];
 
   return (
-    <div>
+    <div className="max-h-[70vh] overflow-auto">
       <Table data={releases} columns={columns} />
     </div>
   );

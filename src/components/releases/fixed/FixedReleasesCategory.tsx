@@ -11,15 +11,29 @@ type TableDataProps = {
   total: number;
 };
 
-const columns: ColumnDef<TableDataProps>[] = [
-  { accessKey: "category", label: "" },
-  { accessKey: "total", label: "", formatFn: currency },
-];
-
 export function FixedReleasesCategory() {
   const { releases } = useContext(FixedReleasesContext);
   const { totalByRevenueCategory, totalByExpenseCategory } =
     useRelease(releases);
+
+  const columns: ColumnDef<TableDataProps>[] = [
+    { accessKey: "category", label: "" },
+    {
+      accessKey: "total",
+      label: "",
+      cell: (data) => (
+        <div
+          className={`${
+            totalByRevenueCategory[data.category]
+              ? "text-emerald-500"
+              : "text-red-500"
+          }`}
+        >
+          {currency(data.total)}
+        </div>
+      ),
+    },
+  ];
 
   const tableData: TableDataProps[] = [
     ...Object.entries(totalByRevenueCategory).map(([key, value]) => ({
@@ -33,10 +47,10 @@ export function FixedReleasesCategory() {
   ];
 
   return (
-    <div>
+    <div className="p-4 shadow-md rounded">
       {!!tableData.length ? (
         <>
-          <h1>Lançamentos por categoria</h1>
+          <h1 className="text-xl italic">Lançamentos por categoria</h1>
           <hr />
           <Table columns={columns} data={tableData} />
         </>

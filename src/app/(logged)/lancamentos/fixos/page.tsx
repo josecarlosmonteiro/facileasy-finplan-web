@@ -20,7 +20,7 @@ export default async function FixedReleases() {
         <div className="grid grid-cols-2 gap-4">
           <section className="h-fit flex flex-col gap-4 p-4 bg-white rounded">
             <TotalSection />
-            
+
             <ReleasesBalancePercentage />
 
             <div className="text-sm italic text-gray-400">
@@ -36,7 +36,9 @@ export default async function FixedReleases() {
             </h2>
             <br />
 
-            <GeneralTableFixedReleases />
+            <div className="text-sm">
+              <GeneralTableFixedReleases />
+            </div>
           </section>
         </div>
       </div>

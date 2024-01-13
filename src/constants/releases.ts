@@ -11,6 +11,7 @@ export const EXPENSES_CATEGORIES = [
   "alimentação",
   "lazer",
   "saúde",
+  "assinatura",
   "farmácia",
   "pets",
   "terceiros",

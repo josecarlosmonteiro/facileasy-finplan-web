@@ -1,43 +1,107 @@
 {
   "fixed-releases": [
     {
-      "id": "8a88",
+      "id": "fa4a",
       "category": "salário",
       "transferType": "bancária",
-      "title": "empresa xpto",
-      "value": "2500",
+      "title": "adiantamento",
+      "value": "2440",
       "type": "in"
     },
     {
-      "id": "c862",
+      "id": "01b5",
+      "category": "salário",
+      "transferType": "bancária",
+      "title": "salário avanade",
+      "value": "2280",
+      "type": "in"
+    },
+    {
+      "id": "464c",
       "category": "moradia",
       "transferType": "PIX",
       "title": "aluguel",
-      "value": "700",
+      "value": "1000",
       "type": "out"
     },
     {
-      "id": "56aa",
+      "id": "1",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "energia",
+      "value": 230,
+      "type": "out"
+    },
+    {
+      "id": "2",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "água",
+      "value": 96,
+      "type": "out"
+    },
+    {
+      "id": "3",
       "category": "moradia",
       "transferType": "PIX",
       "title": "internet",
-      "value": "50",
+      "value": 70,
       "type": "out"
     },
     {
-      "id": "2d13",
-      "category": "alimentação",
-      "transferType": "débito",
-      "title": "mercado",
-      "value": "650",
-      "type": "out"
-    },
-    {
-      "id": "2c6a",
-      "category": "saúde",
+      "id": "1",
+      "category": "assinatura",
       "transferType": "crédito",
-      "title": "academia",
-      "value": "80",
+      "title": "netflix",
+      "value": 54.9,
+      "type": "out"
+    },
+    {
+      "id": "1",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "Amazon Prime",
+      "value": 14.9,
+      "type": "out"
+    },
+    {
+      "id": "2",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "X-Box",
+      "value": 49.9,
+      "type": "out"
+    },
+    {
+      "id": "3",
+      "category": "assinatura",
+      "transferType": "crédito",
+      "title": "Disney",
+      "value": 8,
+      "type": "out"
+    },
+    {
+      "id": "4",
+      "category": "pets",
+      "transferType": "crédito",
+      "title": "areia",
+      "value": 30,
+      "type": "out"
+    },
+    {
+      "id": "1",
+      "category": "terceiros",
+      "transferType": "boleto",
+      "title": "cartão talyta",
+      "value": 900,
+      "type": "out"
+    },
+    {
+      "id": "2",
+      "category": "terceiros",
+      "transferType": "boleto",
+      "title": "remédios talyta",
+      "value": 400,
       "type": "out"
     }
   ]
