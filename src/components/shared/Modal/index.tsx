@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { BsXCircle } from 'react-icons/bs';
 
 type Props = {
   title?: string;
@@ -16,7 +17,9 @@ export function Modal({ title, children, modalOpen, onClose }: Props) {
           <div className="w-fit p-2 rounded bg-white">
             <div className="m-2 pb-2 flex border-b justify-between items-center">
               <span className="text-lg font-semibold text-purple-600">{title}</span>
-              <button onClick={onClose}>close</button>
+              <button className="text-gray-400 hover:bg-gray-500 hover:text-white rounded-full duration-100" onClick={onClose}>
+                <BsXCircle size={20} />
+              </button>
             </div>
 
             <div className="mt-4 m-2 text-start max-h-[65vh] overflow-auto">

@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # local dev data
-/src/database
+/src/database/*
