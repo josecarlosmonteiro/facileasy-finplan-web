@@ -1,3 +1,36 @@
 {
-  "fixed-releases": []
+  "fixed-releases": [
+    {
+      "id": "8481",
+      "category": "salário",
+      "transferType": "bancária",
+      "title": "adiantamento",
+      "value": 2440,
+      "type": "in"
+    },
+    {
+      "id": "df84",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "aluguel",
+      "value": 1000,
+      "type": "out"
+    },
+    {
+      "id": "1342",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "energia",
+      "value": 230,
+      "type": "out"
+    },
+    {
+      "id": "8bb6",
+      "category": "moradia",
+      "transferType": "PIX",
+      "title": "internet",
+      "value": 70,
+      "type": "out"
+    }
+  ]
 }

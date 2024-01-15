@@ -15,12 +15,12 @@ type Props<T> = {
 export function Table<T>({ columns, data }: Props<T>) {
   return (
     <table className="table w-full">
-      <thead className="bg-white">
+      <thead className="">
         <tr>
           {columns.map((col, index) => (
             <th
               key={`col_${index}`}
-              className={`p-2 ${index === columns.length - 1 && "text-end"}`}
+              className={`p-2`}
             >
               {col.label}
             </th>
@@ -38,8 +38,8 @@ export function Table<T>({ columns, data }: Props<T>) {
                 {col.cell
                   ? col.cell(row)
                   : col.formatFn
-                  ? col.formatFn(row[col.accessKey])
-                  : row[col.accessKey]}
+                    ? col.formatFn(row[col.accessKey])
+                    : row[col.accessKey]}
               </td>
             ))}
           </tr>

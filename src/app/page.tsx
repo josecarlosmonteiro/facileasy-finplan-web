@@ -1,9 +1,5 @@
 import Link from "next/link";
 
-function currency(value: string | number) {
-  return Number(value).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-}
-
 export default function Home() {
   return (
     <main className="h-screen grid grid-cols-2 gap-4 items-center">

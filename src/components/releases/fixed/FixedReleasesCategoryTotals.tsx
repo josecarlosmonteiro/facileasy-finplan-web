@@ -17,17 +17,16 @@ export function FixedReleasesCategoryTotals() {
     useRelease(releases);
 
   const columns: ColumnDef<TableDataProps>[] = [
-    { accessKey: "category", label: "" },
+    { accessKey: "category", label: "Categoria" },
     {
       accessKey: "total",
-      label: "",
+      label: "Total (R$)",
       cell: (data) => (
         <div
-          className={`${
-            totalByRevenueCategory[data.category]
-              ? "text-emerald-500"
-              : "text-red-500"
-          }`}
+          className={`${totalByRevenueCategory[data.category]
+            ? "text-emerald-500"
+            : "text-red-500"
+            }`}
         >
           {currency(data.total)}
         </div>
@@ -47,18 +46,11 @@ export function FixedReleasesCategoryTotals() {
   ];
 
   return (
-    <div className="p-4 shadow-md rounded text-sm">
-      {!!tableData.length ? (
-        <>
-          <h1 className="text-xl italic">Lançamentos por categoria</h1>
-          <hr />
-          <Table columns={columns} data={tableData} />
-        </>
-      ) : (
-        <div className="text-center">
-          Você ainda não tem lançamentos cadastrados
-        </div>
-      )}
+    <div>
+      {!!tableData.length
+        ? <Table columns={columns} data={tableData} />
+        : <div className="text-center text-gray-500">Você ainda não tem lançamentos cadastrados</div>
+      }
     </div>
   );
 }
